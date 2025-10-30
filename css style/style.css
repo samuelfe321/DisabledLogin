@@ -1,0 +1,199 @@
+/* -------------------------------------------------
+   Global reset & base styles
+   ------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa;
+  padding: 1rem;
+}
+
+/* -------------------------------------------------
+   Form container
+   ------------------------------------------------- */
+form {
+  width: 100%;
+  max-width: 580px;
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* -------------------------------------------------
+   Header
+   ------------------------------------------------- */
+.login-header {
+  text-align: center;
+}
+.login-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+.login-header p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* -------------------------------------------------
+   Input fields
+   ------------------------------------------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.field label {
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+  color: #333;
+}
+.field input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input:focus {
+  outline: none;
+  border-color: #0066ff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+/* -------------------------------------------------
+   Name row – side-by-side, no overflow
+   ------------------------------------------------- */
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 480px) {
+  .name-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------------------------------------
+   Custom checkbox
+   ------------------------------------------------- */
+.checkbox-group {
+  margin: 1rem 0;
+}
+.checkbox-label {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.4;
+}
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.custom-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #ccc;
+  border-radius: 0.35rem;
+  background: #fff;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  position: relative;
+}
+.checkbox-label input[type="checkbox"]:checked ~ .custom-checkbox {
+  background: #0066ff;
+  border-color: #0066ff;
+}
+.checkbox-label input[type="checkbox"]:checked ~ .custom-checkbox::after {
+  content: "Checkmark";
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.85rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.checkbox-label a {
+  color: #0066ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.checkbox-label a:hover {
+  text-decoration: underline;
+}
+.checkbox-label input[type="checkbox"]:focus-visible ~ .custom-checkbox {
+  outline: 2px solid #0066ff;
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------
+   Submit button
+   ------------------------------------------------- */
+.submit-btn {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0066ff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submit-btn:hover {
+  background: #0052cc;
+}
+
+/* -------------------------------------------------
+   Account link
+   ------------------------------------------------- */
+.create-account {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+.create-account a {
+  color: #0066ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.create-account a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------
+   Responsive tweaks
+   ------------------------------------------------- */
+@media (max-width: 480px) {
+  form {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+}

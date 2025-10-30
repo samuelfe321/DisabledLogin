@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register – Accessible Platform</title>
+    <link rel="stylesheet" href="css style/style.css" />
+    <link rel="stylesheet" href="css style/access.css" />
+  </head>
+  
+  <body data-theme="standard" data-text="normal">
+    <div class="access-toggle" role="region" aria-label="Accessibility options">
+      <button
+        id="contrastBtn"
+        title="Toggle High Contrast"
+        aria-label="High Contrast Mode"
+        aria-pressed="false"
+      >
+        <span class="sr-only">High Contrast</span>
+        <span aria-hidden="true">High Contrast</span>
+      </button>
+      <button
+        id="textBtn"
+        title="Toggle Large Text"
+        aria-label="Large Text Mode"
+        aria-pressed="false"
+      >
+        <span class="sr-only">Large Text</span>
+        <span aria-hidden="true">Large Text</span>
+      </button>
+    </div>
+
+    <main>
+      <form id="regForm" action="" novalidate>
+        <div class="login-header">
+          <h1>Create Account</h1>
+          <p>Secure & accessible registration</p>
+        </div>
+
+        <div class="name-row">
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required placeholder="John" />
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" required placeholder="Doe" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            required
+            placeholder="Create strong password"
+          />
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            required
+            placeholder="Repeat password"
+          />
+        </div>
+
+        <div class="field">
+          <label for="phone"
+            >Phone Number <span style="color: #d00">(Text only)</span></label
+          >
+          <input
+            type="tel"
+            id="phone"
+            required
+            placeholder="+1 (555) 123-4567"
+          />
+          <p style="font-size: 0.85rem; margin-top: 0.25rem; color: #d00">
+            We communicate via text/email only — no voice calls.
+          </p>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms" required />
+            <span class="custom-checkbox"></span>
+            I agree to the
+            <a href="#" target="_blank">Terms of Service</a> and
+            <a href="#" target="_blank">Privacy Policy</a>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Account</button>
+
+        <p class="create-account">
+          Already have an account? <a href="login.html">Sign In</a>
+        </p>
+      </form>
+    </main>
+
+    <script src="js/reg.js"></script>
+  </body>
+</html>

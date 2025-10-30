@@ -1,0 +1,105 @@
+
+:root {
+  --primary: #0066ff;
+  --bg: #f5f7fa;
+  --card: #fff;
+  --border: #ccc;
+}
+[data-theme="high-contrast"] {
+  --bg: #000;
+  --card: #111;
+  --text: #fff;
+  --border: #fff;
+  --primary: #ff0;
+}
+[data-theme="high-contrast"] * {
+  background: var(--card) !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+[data-theme="high-contrast"] input,
+[data-theme="high-contrast"] .custom-checkbox {
+  background: #222 !important;
+  border: 2px solid #fff !important;
+  color: #fff !important;
+}
+[data-theme="high-contrast"] .submit-btn {
+  background: #ff0 !important;
+  color: #000 !important;
+}
+[data-theme="high-contrast"] a {
+  color: #ff0 !important;
+  text-decoration: underline;
+}
+[data-text="large"] {
+  font-size: 1.3rem;
+}
+[data-text="large"] input,
+[data-text="large"] button,
+[data-text="large"] label,
+[data-text="large"] .custom-checkbox,
+[data-text="large"] .access-toggle button {
+  font-size: 1.15rem;
+}
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.access-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+.access-toggle button {
+  background: none;
+  border: 2px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+.access-toggle button:hover,
+.access-toggle button.active {
+  background: var(--primary);
+  color: #000;
+  border-color: var(--primary);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 480px) {
+  .access-toggle {
+    top: auto;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .access-toggle button {
+    min-width: auto;
+    padding: 0.6rem;
+  }
+}
