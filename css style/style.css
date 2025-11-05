@@ -101,26 +101,6 @@ body {
   clip: rect(0,0,0,0);
 }
 
-/* Mobile: Bottom-center, vertical stack */
-@media (max-width: 480px) {
-  .access-toggle {
-    top: auto;
-    bottom: 1rem;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    flex-direction: column;
-    width: max-content;
-    max-width: 200px;
-    padding: 0.6rem;
-  }
-
-  .access-toggle button {
-    min-width: auto;
-    padding: 0.6rem 1rem;
-  }
-}
-
 /* -------------------------------------------------
    Form
    ------------------------------------------------- */
@@ -143,6 +123,7 @@ form {
   font-size: 1.75rem;
   margin-bottom: 0.25rem;
   color: var(--text);
+  margin-top: 20px;
 }
 .login-header p {
   font-size: 0.9rem;
