@@ -79,7 +79,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  min-width: 80px;
+  height: 100%;
   text-align: center;
   color: var(--text);
   font-size: 0.85rem;
@@ -379,6 +379,8 @@ form {
   cursor: pointer;
   color: var(--text);
 }
+
+
 
 /* -------------------------------------------------
    Responsive

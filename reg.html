@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register – Dynamite Systems</title>
   <link rel="stylesheet" href="css style/style.css" />
-  <link rel="stylesheet" href="css style/access.css">
+  <link rel="stylesheet" href="css style/access.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body data-theme="standard" data-tts="off">
+  <!-- Accessibility Toggle – Icon Buttons -->
   <div class="access-toggle" role="region" aria-label="Accessibility options">
-    <button id="themeBtn" title="Toggle Dark Mode" aria-label="Dark Mode" aria-pressed="false">
+    <button id="themeBtn" class="access-btn" title="Toggle Dark Mode" aria-label="Toggle Dark Mode" aria-pressed="false">
+      <i class="fas fa-moon"></i>
       <span class="sr-only">Dark Mode</span>
-      <span aria-hidden="true">Dark Mode</span>
     </button>
-    <button id="ttsBtn" title="Toggle Text-to-Speech" aria-label="Text-to-Speech" aria-pressed="false">
+    <button id="ttsBtn" class="access-btn" title="Toggle Text-to-Speech" aria-label="Toggle Text-to-Speech" aria-pressed="false">
+      <i class="fas fa-volume-up"></i>
       <span class="sr-only">Text-to-Speech</span>
-      <span aria-hidden="true">TTS</span>
     </button>
   </div>
 
@@ -54,7 +55,7 @@
       <div class="field password-field">
         <label for="confirmPassword">Confirm Password</label>
         <div class="password-wrapper">
-          <input type="text" id="confirmPassword" required placeholder="Confirm password" />
+          <input type="password" id="confirmPassword" required placeholder="Confirm password" />
           <button type="button" class="toggle-password" aria-label="Show password">
             <i class="fa fa-eye"></i>
           </button>
@@ -93,7 +94,7 @@
       </div>
 
       <p class="create-account">
-        Already have an account? <a href="login.html">Sign In</a>
+        Already have an account? <a href="index.html">Sign In</a>
       </p>
     </form>
   </main>

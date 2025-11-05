@@ -5,8 +5,10 @@ const body     = document.body;
 
 function updateThemeButton() {
   const isDark = body.getAttribute("data-theme") === "dark";
-  const visible = themeBtn?.querySelector('span[aria-hidden="true"]');
-  if (visible) visible.textContent = isDark ? "Light Mode" : "Dark Mode";
+  const icon = themeBtn?.querySelector('i');
+  if (icon) {
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+  }
   if (themeBtn) {
     themeBtn.setAttribute("aria-label", isDark ? "Light Mode" : "Dark Mode");
     themeBtn.setAttribute("title", isDark ? "Switch to Light Mode" : "Switch to Dark Mode");
@@ -57,15 +59,14 @@ document.querySelectorAll("input, button").forEach(el => {
   });
 });
 
-// Password eye toggle – FIXED
+// Password eye toggle
 document.querySelectorAll(".toggle-password").forEach(btn => {
   btn.addEventListener("click", () => {
     const input = btn.previousElementSibling;
     const isPwd = input.type === "password";
     input.type = isPwd ? "text" : "password";
     btn.innerHTML = isPwd
-      ? '<i class="fa fa-eye"></i>'
-      : '<i class="fa fa-eye-slash"></i>';
-      
+      ? '<i class="fa fa-eye-slash"></i>'
+      : '<i class="fa fa-eye"></i>';
   });
 });
