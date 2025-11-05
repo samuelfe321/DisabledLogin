@@ -49,59 +49,75 @@ body {
 }
 
 /* -------------------------------------------------
-   Accessibility Toggle
+   Accessibility Toggle – CENTERED, NO BORDER, CLEAN
    ------------------------------------------------- */
 .access-toggle {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--card);
-  border-radius: 1rem;
-  padding: 0.5rem;
+  border-radius: 2rem;
+  padding: 0.4rem 0.8rem;
   display: flex;
   gap: 0.5rem;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 0.9rem;
+  white-space: nowrap;
+  max-width: 90vw;
+  overflow: hidden;
+  border: none;
+  width: max-content;
 }
+
 .access-toggle button {
-  background: none;
-  border: 1px solid var(--border);
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
   min-width: 80px;
   text-align: center;
+  color: var(--text);
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
 }
+
 .access-toggle button:hover,
 .access-toggle button[aria-pressed="true"] {
   background: var(--primary);
-  color: #000;
-  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0,0,0,0);
 }
 
-/* Mobile – bottom center */
+/* Mobile: Bottom-center, vertical stack */
 @media (max-width: 480px) {
   .access-toggle {
     top: auto;
     bottom: 1rem;
-    flex-direction: column;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
+    flex-direction: column;
     width: max-content;
+    max-width: 200px;
+    padding: 0.6rem;
   }
+
   .access-toggle button {
     min-width: auto;
+    padding: 0.6rem 1rem;
   }
 }
 
@@ -128,7 +144,7 @@ form {
   margin-bottom: 0.25rem;
   color: var(--text);
 }
-.login .login-header p {
+.login-header p {
   font-size: 0.9rem;
   color: #888;
 }
@@ -386,7 +402,7 @@ form {
 /* -------------------------------------------------
    Responsive
    ------------------------------------------------- */
-@media (max-width: 1000px) {
+@media (max-width: 2000px) {
   form {
     margin: 1rem;
     padding: 2rem 1.5rem;
