@@ -65,16 +65,27 @@
 }
 
 /* keep the mobile behaviour (bottom-center) */
-@media (max-width: 480px) {
+@media (max-width: 750px) {
   .access-toggle {
-    top: auto;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    justify-content: center;
-    flex-direction: column;
-  }
+  position: fixed;
+  top: 1em;
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
   .access-toggle button {
-    min-width: auto;
-    padding: 0.6rem;
-  }
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+  text-align: center;
+}
