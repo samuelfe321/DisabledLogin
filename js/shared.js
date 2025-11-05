@@ -66,7 +66,8 @@ document.querySelectorAll(".toggle-password").forEach(btn => {
     const isPwd = input.type === "password";
     input.type = isPwd ? "text" : "password";
     btn.innerHTML = isPwd
-      ? '<i class="fa fa-eye-slash"></i>'
-      : '<i class="fa fa-eye"></i>';
+      ? '<i class="fa fa-eye"></i>'
+      : '<i class="fa fa-eye-slash"></i>';
+       
   });
 });
