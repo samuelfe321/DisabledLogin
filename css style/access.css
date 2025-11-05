@@ -77,10 +77,9 @@
 }
 
 /* Mobile ONLY – bottom-center, vertical stack */
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .access-toggle {
-    top: auto;
-    bottom: 1rem;
+    position: fixed;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -88,7 +87,7 @@
     width: max-content;
     max-width: 200px;
     padding: 0.5px;
-    margin-bottom: 810px;
+    margin-bottom: auto;
     position: fixed;
   }
 
