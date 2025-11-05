@@ -65,7 +65,7 @@
 }
 
 /* keep the mobile behaviour (bottom-center) */
-@media (max-width: 1000px) {
+@media (max-width: px) {
   .access-toggle {
   position: fixed;
   top: 1em;

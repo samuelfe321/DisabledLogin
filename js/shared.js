@@ -1,36 +1,38 @@
-// === Theme & TTS (Shared) ===
+// === Theme & TTS ===
 const themeBtn = document.getElementById("themeBtn");
-const ttsBtn = document.getElementById("ttsBtn");
-const body = document.body;
+const ttsBtn   = document.getElementById("ttsBtn");
+const body     = document.body;
 
-function updateThemeButtonText() {
+function updateThemeButton() {
   const isDark = body.getAttribute("data-theme") === "dark";
-  const visibleText = themeBtn.querySelector('span[aria-hidden="true"]');
-  visibleText.textContent = isDark ? "Light Mode" : "Dark Mode";
-  themeBtn.setAttribute("aria-label", isDark ? "Light Mode" : "Dark Mode");
-  themeBtn.setAttribute("title", isDark ? "Switch to Light Mode" : "Switch to Dark Mode");
+  const visible = themeBtn?.querySelector('span[aria-hidden="true"]');
+  if (visible) visible.textContent = isDark ? "Light Mode" : "Dark Mode";
+  if (themeBtn) {
+    themeBtn.setAttribute("aria-label", isDark ? "Light Mode" : "Dark Mode");
+    themeBtn.setAttribute("title", isDark ? "Switch to Light Mode" : "Switch to Dark Mode");
+  }
 }
 
 // Load saved theme
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
+const saved = localStorage.getItem("theme");
+if (saved === "dark") {
   body.setAttribute("data-theme", "dark");
-  themeBtn.setAttribute("aria-pressed", "true");
+  themeBtn?.setAttribute("aria-pressed", "true");
 }
-updateThemeButtonText();
+updateThemeButton();
 
 // Toggle Theme
-themeBtn.addEventListener("click", () => {
+themeBtn?.addEventListener("click", () => {
   const isDark = body.getAttribute("data-theme") === "dark";
   const newTheme = isDark ? "standard" : "dark";
   body.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
   themeBtn.setAttribute("aria-pressed", !isDark);
-  updateThemeButtonText();
+  updateThemeButton();
 });
 
-// TTS Toggle
-ttsBtn.addEventListener("click", () => {
+// TTS
+ttsBtn?.addEventListener("click", () => {
   const isOn = body.getAttribute("data-tts") === "on";
   body.setAttribute("data-tts", isOn ? "off" : "on");
   ttsBtn.setAttribute("aria-pressed", !isOn);
@@ -41,28 +43,29 @@ ttsBtn.addEventListener("click", () => {
 function speak(text) {
   if (body.getAttribute("data-tts") !== "on") return;
   speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.9;
-  utterance.pitch = 1;
-  speechSynthesis.speak(utterance);
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.rate = 0.9; utter.pitch = 1;
+  speechSynthesis.speak(utter);
 }
 
-// Auto-read labels on focus
-document.querySelectorAll("input, button").forEach((el) => {
+// Auto-read on focus
+document.querySelectorAll("input, button").forEach(el => {
   el.addEventListener("focus", () => {
-    const label = el.closest(".field")?.querySelector("label")?.textContent || el.textContent || el.getAttribute("aria-label");
+    const label = el.closest(".field")?.querySelector("label")?.textContent ||
+                  el.textContent || el.getAttribute("aria-label") || "";
     if (label) speak(label);
   });
 });
 
-// Password toggle
-document.querySelectorAll(".toggle-password").forEach((btn) => {
+// Password eye toggle – FIXED
+document.querySelectorAll(".toggle-password").forEach(btn => {
   btn.addEventListener("click", () => {
     const input = btn.previousElementSibling;
-    const isPassword = input.type === "password";
-    input.type = isPassword ? "text" : "password";
-    btn.innerHTML = isPassword
-      ? '<i class="fa fa-eye-slash"></i>'
-      : '<i class="fa fa-eye"></i>';
+    const isPwd = input.type === "password";
+    input.type = isPwd ? "text" : "password";
+    btn.innerHTML = isPwd
+      ? '<i class="fa fa-eye"></i>'
+      : '<i class="fa fa-eye-slash"></i>';
+      
   });
 });
